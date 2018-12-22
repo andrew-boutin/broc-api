@@ -1,0 +1,212 @@
+swagger: '2.0'
+info:
+  title: BROC
+  description: |
+    Bring Your Own Controller API.
+  version: 1.0.0
+tags:
+- name: host
+  description: Manage host resources.
+schemes:
+- https
+paths:
+  /hosts:
+    get:
+      tags:
+      - host
+      summary: List hosts.
+      description: List all hosts.
+      operationId: listHosts
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Successfully retrieved a list of hosts.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+        400:
+          $ref: '#/responses/400'
+        401:
+          $ref: '#/responses/401'
+        403:
+          $ref: '#/responses/403'
+        500:
+          $ref: '#/responses/500'
+
+    post:
+      tags:
+      - host
+      summary: Create host.
+      description: Create a new host.
+      operationId: createHost
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Host object that needs to be created.
+        required: true
+        schema:
+          $ref: '#/definitions/HostCreateDetails'
+      responses:
+        201:
+          description: Successfully created the host.
+          headers:
+            Location:
+              description: URL of the newly created resource.
+              type: string
+          schema:
+            $ref: '#/definitions/Host'
+        400:
+          $ref: '#/responses/400'
+        401:
+          $ref: '#/responses/401'
+        403:
+          $ref: '#/responses/403'
+        500:
+          $ref: '#/responses/500'
+
+  /hosts/{hostId}:
+    get:
+      tags:
+      - host
+      summary: Get host.
+      description: Get a single host.
+      operationId: getHost
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: hostId
+        description: Id of the host to retrieve.
+        required: true
+        type: string
+      responses:
+        200:
+          description: The host was retrieved successfully.
+          schema:
+            $ref: '#/definitions/Host'
+        401:
+          $ref: '#/responses/401'
+        403:
+          $ref: '#/responses/403'
+        404:
+          $ref: '#/responses/404'
+        500:
+          $ref: '#/responses/500'
+    put:
+      tags:
+      - host
+      summary: Update host.
+      description: Update an existing host.
+      operationId: updateHost
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: hostId
+        description: Id of the host to retrieve.
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Host object that needs to be updated.
+        required: true
+        schema:
+          $ref: '#/definitions/Host'
+      responses:
+        200:
+          description: The host was updated successfully.
+          schema:
+            $ref: '#/definitions/Host'
+        400:
+          $ref: '#/responses/400'
+        401:
+          $ref: '#/responses/401'
+        403:
+          $ref: '#/responses/403'
+        404:
+          $ref: '#/responses/404'
+        500:
+          $ref: '#/responses/500'
+    delete:
+      tags:
+      - host
+      summary: Delete host.
+      description: Delete a single host.
+      operationId: deleteHost
+      parameters:
+      - in: path
+        name: hostId
+        description: Id of the host to delete.
+        required: true
+        type: string
+      responses:
+        204:
+          description: The host was deleted successfully.
+        401:
+          $ref: '#/responses/401'
+        403:
+          $ref: '#/responses/403'
+        404:
+          $ref: '#/responses/404'
+        500:
+          $ref: '#/responses/500'
+
+definitions:
+  Host:
+    type: object
+    description: |
+      Represents a host that is registered with the master host.
+    properties:
+      id:
+        description: Unique identifier of the resource.
+        type: string
+      name:
+        description: Name of the resource.
+        type: string
+      self:
+        description: Absolute URL of the resource.
+        type: string
+      timeCreated:
+        description: |
+          Time, in RFC-3339 format, when the resource was first created.
+        type: string
+      timeUpdated:
+        description: |
+          Time, in RFC-3339 format, when the resource was last updated,
+          including updates made by the internal system.
+        type: string
+
+  HostCreateDetails:
+    type: object
+    description: |
+      The required and optional information used when creating a new host.
+    required:
+    - name
+    properties:
+      name:
+        description: Name of the resource.
+        type: string
+
+responses:
+  400:
+    description: Bad Request
+  401:
+    description: Unauthorized.
+  403:
+    description: Forbidden.
+  404:
+    description: Not Found.
+  500:
+    description: Internal Server Error.
+
+externalDocs:
+  description: Find out more about BROC API.
+  url: 'https://github.com/andrew-boutin/broc-api'
