@@ -1,11 +1,11 @@
 package com.bakingbitsstudios.resources;
 
 import com.bakingbitsstudios.data.Host;
+import com.bakingbitsstudios.persistence.HostDao;
 import com.codahale.metrics.annotation.Timed;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Path("/hosts")
 public class HostService {
+    // TODO: Handle host not found scenarios
 
     public HostService() {
 
@@ -22,8 +23,7 @@ public class HostService {
     @Timed
     @Produces(MediaType.APPLICATION_JSON)
     public List<Host> listHosts() {
-        // TODO: look up hosts in the data layer
-        return Arrays.asList(new Host());
+        return HostDao.GetAllHosts();
     }
 
     @POST
@@ -31,8 +31,7 @@ public class HostService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Host createHost(Host host) {
-        // TODO: create new host in the data layer
-        return host;
+        return HostDao.CreateHost(host);
     }
 
     @GET
@@ -40,8 +39,7 @@ public class HostService {
     @Path("/{hostId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Host getHost(@PathParam("hostId") String hostId) {
-        // TODO: look up host by id in the data layer
-        return new Host();
+        return HostDao.GetHostById(hostId);
     }
 
     @PUT
@@ -50,14 +48,13 @@ public class HostService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Host updateHost(@PathParam("hostId") String id, Host host) {
-        // TODO: update host in the data layer
-        return new Host();
+        return HostDao.UpdateHost(id, host);
     }
 
     @DELETE
     @Timed
     @Path("/{hostId}")
     public void deleteHost(@PathParam("hostId") String id) {
-        // TODO: delete host in the data layer
+        HostDao.DeleteHost(id);
     }
 }
