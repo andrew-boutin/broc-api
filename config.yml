@@ -1,0 +1,9 @@
+version: 1.0.0
+
+server:
+  applicationConnectors:
+  - type: https
+    port: 8000
+  adminConnectors:
+  - type: https
+    port: 8001
