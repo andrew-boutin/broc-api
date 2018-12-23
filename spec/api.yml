@@ -8,7 +8,7 @@ tags:
 - name: host
   description: Manage host resources.
 schemes:
-- https
+- http
 paths:
   /hosts:
     get:

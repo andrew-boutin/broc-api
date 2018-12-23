@@ -1,2 +1,11 @@
-.idea/
+# Build output dir
 target/
+
+# Resources that get auto populated during build phase
+src/main/resources/swagger-ui/
+
+# IntelliJ things
+.idea/
+
+# Others
+.DS_Store
