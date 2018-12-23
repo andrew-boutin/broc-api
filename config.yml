@@ -3,7 +3,7 @@ version: 1.0.0
 server:
   applicationConnectors:
   - type: http
-    port: 8000
+    port: ${BROC_API_PORT:- 8000}
   adminConnectors:
   - type: http
-    port: 8001
+    port: ${BROC_API_ADMIN_PORT:- 8001}
