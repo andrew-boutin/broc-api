@@ -7,7 +7,7 @@ Bring Your Own Controller API
 ## Build and Run
 
 ```bash
-make
+$make
 ```
 
 Go to `http://localhost:8000/swagger-ui/` to see a list of endpoints, and auto generate `curl` commands to test out the API.

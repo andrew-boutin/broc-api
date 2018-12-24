@@ -1,21 +1,32 @@
 package com.bakingbitsstudios.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 /**
  * A representation class. Otherwise known as POJO or data object.
  */
+@Getter
 public class Host {
-    // TODO: Lombok
     // TODO: Builder annotation
+
+    @JsonProperty
     private String id;
+
+    @JsonProperty
     private String name;
+
+    @JsonProperty
     private String self;
+
+    @JsonProperty
     private String timeCreated;
+
+    @JsonProperty
     private String timeUpdated;
 
     public Host() {
-
+        // Jackson deserialization
     }
 
     public Host(String id, String name, String self, String timeCreated, String timeUpdated) {
@@ -24,31 +35,5 @@ public class Host {
         this.self = self;
         this.timeCreated = timeCreated;
         this.timeUpdated = timeUpdated;
-    }
-
-    // These allow Jackson to serialize and de-serialize from JSON.
-    @JsonProperty
-    public String getId() {
-        return id;
-    }
-
-    @JsonProperty
-    public String getName() {
-        return name;
-    }
-
-    @JsonProperty
-    public String getSelf() {
-        return self;
-    }
-
-    @JsonProperty
-    public String getTimeCreated() {
-        return timeCreated;
-    }
-
-    @JsonProperty
-    public String getTimeUpdated() {
-        return timeUpdated;
     }
 }
