@@ -2,7 +2,7 @@
 
 Bring Your Own Controller API
 
-![cool-broccoli](coolbroccoli.png)
+![cool-broccoli](cool-broccoli.png)
 
 ## Build and Run
 
