@@ -24,7 +24,7 @@ $docker run -it -p 8000:9000 -p 8001:8001 -e BROC_API_PORT=9000 broc-api
 
 This API leverages the [Dropwizard](https://www.dropwizard.io/1.3.5/docs/) framework.
 
-It uses [Maven](https://maven.apache.org/) as the build tool. [Docker](https://www.docker.com/) is used for containerization. [Makefile](ftp://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_chapter/make_2.html) is used for command automation.
+It uses [Maven](https://maven.apache.org/) as the build tool. [Docker](https://www.docker.com/) is used for containerization. [Makefile](https://www.gnu.org/software/make/manual/html_node/Introduction.html) is used for command automation.
 
 The API is defined by a [Swagger](https://swagger.io/) spec. The app also hosts a Swagger UI at `/swagger-ui/`.
 
