@@ -5,13 +5,31 @@ Bring Your Own Controller API
 ## Build and Run
 
 ```bash
-$ mvn clean package
-$ java -jar target/broc-api-1.0.0-SNAPSHOT.jar server ../config.yml
+$mvn clean package
+$java -jar target/broc-api-1.0.0-SNAPSHOT.jar server ../config.yml
 ```
 
 Go to `http://localhost:8000/swagger-ui/` to see a list of endpoints, and auto generate `curl` commands to test out the API.
 
 Health checks are exposed at `http://localhost:8001/healthcheck`.
+
+
+## Docker
+
+Can also build and run as a `Docker` container after generating the executable `jar`.
+
+```bash
+$docker build -t broc-api .
+$docker run -it -p 8000:8000 -p 8001:8001 broc-api
+```
+
+## Environment Variables
+
+Can pass in environment variables to the Docker command that the application will utilize. For example the application config file optionally allows you to specify the ports.
+
+```bash
+$docker run -it -p 8000:9000 -p 8001:8001 -e BROC_API_PORT=9000 broc-api
+```
 
 ## Technology
 
