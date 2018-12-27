@@ -1,33 +1,21 @@
 package com.bakingbitsstudios.data;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Value;
 
 /**
  * A representation class. Otherwise known as POJO or data object.
  */
-@Getter
-@AllArgsConstructor
+@Value
+@Builder
 public class Host {
-    // TODO: Builder annotation
+    String id;
 
-    @JsonProperty
-    private String id;
+    String name;
 
-    @JsonProperty
-    private String name;
+    String self;
 
-    @JsonProperty
-    private String self;
+    String timeCreated;
 
-    @JsonProperty
-    private String timeCreated;
-
-    @JsonProperty
-    private String timeUpdated;
-
-    public Host() {
-        // Jackson deserialization
-    }
+    String timeUpdated;
 }
