@@ -1,7 +1,7 @@
 # So we can see what commands get ran from the command line output.
 SHELL = sh -xv
 
-default: clean build up
+default: down clean build up
 
 # Clean out previously compiled classes, artifacts, etc.
 .PHONY: clean
