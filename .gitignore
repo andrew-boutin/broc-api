@@ -2,7 +2,7 @@
 target/
 
 # Resources that get auto populated during build phase
-src/main/resources/swagger-ui/
+broc-api-app/src/main/resources/swagger-ui/
 
 # IntelliJ things
 .idea/

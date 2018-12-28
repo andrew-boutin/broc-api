@@ -12,7 +12,6 @@ clean:
 .PHONY: build
 build:
 	mvn package
-	docker build -t broc-api .
 
 # Bring up the Docker network daemonized with compose
 .PHONY: up
@@ -27,9 +26,9 @@ down:
 # Run the single app container with Docker
 .PHONY: run
 run:
-	docker run -it -p 8000:8000 -p 8001:8001 broc-api
+	docker run -it -p 8000:8000 -p 8001:8001 broc-api-app
 
 # Run the application without containerization
 .PHONY: run-uncontained
 run-uncontained:
-	java -jar target/broc-api-1.0.0-SNAPSHOT.jar server config.yml
+	java -jar broc-api-app/target/broc-api-app-1.0.0-SNAPSHOT.jar server config.yml
