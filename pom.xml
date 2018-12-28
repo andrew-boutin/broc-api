@@ -17,19 +17,19 @@
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-assets</artifactId>
-            <version>1.3.2</version> <!-- TODO: use latest version -->
+            <version>1.3.7</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.16</version> <!-- TODO: use latest version -->
+            <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Validat the Swagger spec. -->
+            <!-- Validate the Swagger spec. -->
             <plugin>
                 <groupId>com.github.sylvainlaurent.maven</groupId>
                 <artifactId>swagger-validator-maven-plugin</artifactId>
@@ -53,7 +53,7 @@
             <!-- Need to clean out the old Swagger UI. -->
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version> <!-- TODO: use latest version -->
+                <version>3.1.0</version>
                 <configuration>
                     <filesets>
                         <fileset>
@@ -67,7 +67,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>2.4.3</version> <!-- TODO: use latest version -->
+                <version>3.2.1</version>
                 <configuration>
                     <createDependencyReducedPom>true</createDependencyReducedPom>
                     <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
@@ -100,10 +100,10 @@
                 </executions>
             </plugin>
             <!-- Grab latest Swagger UI. -->
-            <plugin> <!-- TODO: use latest version -->
+            <plugin>
                 <groupId>com.googlecode.maven-download-plugin</groupId>
                 <artifactId>download-maven-plugin</artifactId>
-                <version>1.4.0</version>
+                <version>1.4.1</version>
                 <executions>
                     <execution>
                         <id>swagger-ui</id>
@@ -127,7 +127,7 @@
             <plugin>
                 <groupId>com.google.code.maven-replacer-plugin</groupId>
                 <artifactId>replacer</artifactId>
-                <version>1.5.3</version> <!-- TODO: use latest version -->
+                <version>1.5.3</version>
                 <executions>
                     <execution>
                         <phase>generate-resources</phase>
@@ -158,7 +158,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.1.0</version> <!-- TODO: use latest version -->
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <id>copy-resources</id>
