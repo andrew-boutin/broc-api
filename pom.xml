@@ -29,6 +29,27 @@
 
     <build>
         <plugins>
+            <!-- Validat the Swagger spec. -->
+            <plugin>
+                <groupId>com.github.sylvainlaurent.maven</groupId>
+                <artifactId>swagger-validator-maven-plugin</artifactId>
+                <version>1.2.4</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                        <configuration>
+                            <failOnErrors>true</failOnErrors>
+                            <includes>
+                                <include>spec/api.yml</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- Need to clean out the old Swagger UI. -->
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
