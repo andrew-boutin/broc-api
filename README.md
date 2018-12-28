@@ -19,7 +19,7 @@ Health checks are exposed at `http://localhost:8001/healthcheck`.
 Environment variables can be specified, with the Docker run command, that the application will utilize. For example the application config file optionally allows you to specify the ports.
 
 ```bash
-$docker run -it -p 8000:9000 -p 8001:8001 -e BROC_API_PORT=9000 broc-api
+$docker run -it -p 8000:9000 -p 8001:8001 -e BROC_API_PORT=9000 broc-api-app
 ```
 
 ## Technology
@@ -30,6 +30,4 @@ It utilizes [Redis](https://redis.io/) as a data store. [Redis Commander](https:
 
 It uses [Maven](https://maven.apache.org/) as the build tool. [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) are used for containerization. [Makefile](https://www.gnu.org/software/make/manual/html_node/Introduction.html) is used for command automation.
 
-The API is defined by a [Swagger](https://swagger.io/) spec. The app also hosts a Swagger UI at `/swagger-ui/`.
-
-Either run the app and go to `/swagger-ui/` or drop the [BROC API spec](./spec/api.yml) into the online [Swagger Editor](https://editor.swagger.io/) to see details on the API design.
+The API is defined by a [Swagger](https://swagger.io/) spec. The app also hosts a Swagger UI at `/swagger-ui/`. Either run the app and go to `/swagger-ui/` or drop the [BROC API spec](broc-api-spec/api.yml) into the online [Swagger Editor](https://editor.swagger.io/) to see details on the API design.

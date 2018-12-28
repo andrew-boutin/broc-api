@@ -9,7 +9,7 @@ services:
     volumes:
     - ./scripts:/var/broc-api/scripts
     entrypoint: ["sh", "-c"]
-    command: ["./scripts/wait-for.sh redis:6379 && java -jar broc-api.jar server config.yml"]
+    command: ["./scripts/wait-for.sh redis:6379 && java -jar broc-api-app.jar server config.yml"]
     ports:
     - "8000:8000"
     - "8001:8001"
