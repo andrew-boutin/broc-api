@@ -1,4 +1,7 @@
-default: clean build run
+# So we can see what commands get ran from the command line output.
+SHELL = sh -xv
+
+default: clean build up
 
 # Clean out previously compiled classes, artifacts, etc.
 .PHONY: clean
@@ -11,7 +14,17 @@ build:
 	mvn package
 	docker build -t broc-api .
 
-# Run the application in a Docker container
+# Bring up the Docker network daemonized with compose
+.PHONY: up
+up:
+	docker-compose up -d
+
+# Bring down the Docker network with compose
+.PHONY: down
+down:
+	docker-compose down
+
+# Run the single app container with Docker
 .PHONY: run
 run:
 	docker run -it -p 8000:8000 -p 8001:8001 broc-api
