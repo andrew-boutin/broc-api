@@ -28,6 +28,8 @@ This API leverages the [Dropwizard](https://www.dropwizard.io/1.3.5/docs/) frame
 
 It utilizes [Redis](https://redis.io/) as a data store. [Redis Commander](https://joeferner.github.io/redis-commander/) is also set up.
 
-It uses [Maven](https://maven.apache.org/) as the build tool. [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) are used for containerization. [Makefile](https://www.gnu.org/software/make/manual/html_node/Introduction.html) is used for command automation.
+It uses [Maven](https://maven.apache.org/) as the build tool. The project is broken out into submodules.
+
+[Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) are used for containerization. [Makefile](https://www.gnu.org/software/make/manual/html_node/Introduction.html) is used for command automation.
 
 The API is defined by a [Swagger](https://swagger.io/) spec. The app also hosts a Swagger UI at `/swagger-ui/`. Either run the app and go to `/swagger-ui/` or drop the [BROC API spec](broc-api-spec/api.yml) into the online [Swagger Editor](https://editor.swagger.io/) to see details on the API design.
