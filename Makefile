@@ -13,10 +13,12 @@ clean:
 build:
 	mvn package
 
-# Bring up the Docker network daemonized with compose
+# Bring up the Docker network daemonized with compose. The --build forces
+# the app's Dockerfile to be rebuilt so that the updated .jar is used in the
+# container.
 .PHONY: up
 up:
-	docker-compose up -d
+	docker-compose up --build -d
 
 # Bring down the Docker network with compose
 .PHONY: down
