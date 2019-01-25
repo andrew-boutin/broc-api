@@ -8,3 +8,7 @@ To build and run the app execute the following
 $mvn clean package
 $java -jar target/broc-api-app-1.0.0-SNAPSHOT.jar server config.yml
 ```
+
+---
+
+Check out my [personal site](https://andrewboutin.com)!

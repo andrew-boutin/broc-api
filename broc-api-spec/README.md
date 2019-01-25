@@ -7,3 +7,7 @@ To validate the Swagger spec execute the following
 ```bash
 $mvn clean verify
 ```
+
+---
+
+Check out my [personal site](https://andrewboutin.com)!
